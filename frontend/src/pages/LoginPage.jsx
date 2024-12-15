@@ -15,9 +15,9 @@ function LoginPage({ onLogin }) {
     try {
       const response = await axios.post('http://localhost:5000/api/login', { 
         email,
-        firstName: '', // placeholder if needed for backend
-        lastName: '',  // placeholder if needed for backend
-        country: ''    // placeholder if needed for backend
+        firstName: '', 
+        lastName: '',  
+        country: ''    
       });
 
       // Destructure response with default fallbacks
