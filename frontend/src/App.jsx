@@ -12,16 +12,14 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Check for existing token and user on app load
+    
     const token = localStorage.getItem('token');
     const storedUser = localStorage.getItem('user');
 
     if (token && storedUser) {
       try {
-        // Set user from local storage
         setUser(JSON.parse(storedUser));
       } catch (e) {
-        // Clear invalid local storage
         localStorage.removeItem('token');
         localStorage.removeItem('user');
       }
