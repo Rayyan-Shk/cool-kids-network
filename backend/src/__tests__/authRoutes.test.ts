@@ -3,7 +3,6 @@ import express from 'express';
 import axios from 'axios';
 import authRoutes from '../routes/authRoutes';
 import prisma from '../prisma';
-import { generateToken } from '../config/jwtUtils';
 
 // Mock Prisma and axios
 jest.mock('../prisma', () => ({

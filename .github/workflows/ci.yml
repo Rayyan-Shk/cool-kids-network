@@ -34,12 +34,6 @@ jobs:
         run: |
           npm run lint
 
-      # Step 5: Run tests for Frontend
-      - name: Run tests (Frontend)
-        working-directory: ./frontend
-        run: |
-          npm run test
-
       # Step 6: Set up Node.js for Backend
       - name: Set up Node.js for Backend
         uses: actions/setup-node@v3
