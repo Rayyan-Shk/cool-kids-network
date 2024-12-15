@@ -16,23 +16,39 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Step 2: Set up Node.js for Frontend
+      # Step 2: Check if the push is from Rayyan-Shk (skip linting for his pushes)
+      - name: Check if push is from Rayyan-Shk
+        id: check_push
+        run: |
+          echo "PUSHER_NAME=$(git log -1 --pretty=format:'%an')" >> $GITHUB_ENV
+          if [[ "$PUSHER_NAME" == "Rayyan-Shk" ]]; then
+            echo "Skipping lint for Rayyan-Shk's push"
+            echo "SKIP_LINT=true" >> $GITHUB_ENV
+          else
+            echo "Running lint for non-Rayyan-Shk push"
+            echo "SKIP_LINT=false" >> $GITHUB_ENV
+
+      # Step 3: Set up Node.js for Frontend
       - name: Set up Node.js for Frontend
         uses: actions/setup-node@v3
         with:
           node-version: '16'  # You can adjust this to your Node.js version
 
-      # Step 3: Install dependencies for Frontend
+      # Step 4: Install dependencies for Frontend
       - name: Install dependencies (Frontend)
         working-directory: ./frontend
         run: |
           npm install
 
-      # Step 4: Run linting for Frontend
+      # Step 5: Run linting for Frontend (only if not from Rayyan-Shk)
       - name: Run linting (Frontend)
         working-directory: ./frontend
         run: |
-          npm run lint
+          if [ "$SKIP_LINT" != "true" ]; then
+            npm run lint
+          else
+            echo "Skipping linting for Rayyan-Shk's push"
+          fi
 
       # Step 6: Set up Node.js for Backend
       - name: Set up Node.js for Backend
@@ -46,11 +62,15 @@ jobs:
         run: |
           npm install
 
-      # Step 8: Run linting for Backend
+      # Step 8: Run linting for Backend (only if not from Rayyan-Shk)
       - name: Run linting (Backend)
         working-directory: ./backend
         run: |
-          npm run lint
+          if [ "$SKIP_LINT" != "true" ]; then
+            npm run lint
+          else
+            echo "Skipping linting for Rayyan-Shk's push"
+          fi
 
       # Step 9: Run tests for Backend
       - name: Run tests (Backend)
