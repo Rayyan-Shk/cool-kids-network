@@ -1,54 +1,65 @@
-name: CI Pipeline
+name: Lint and Test Frontend & Backend
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   lint-and-test:
-    name: Lint and Test Frontend & Backend
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18, 20] # You can specify supported Node.js versions
-
     steps:
       # Step 1: Checkout code
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # Step 2: Set up Node.js
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      # Step 2: Set up Node.js for Frontend
+      - name: Set up Node.js for Frontend
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          node-version: '16'  # You can adjust this to your Node.js version
 
-      # Step 3: Run Backend Lint and Tests
-      - name: Install backend dependencies
-        working-directory: ./backend
-        run: npm install
-
-      - name: Run backend linter
-        working-directory: ./backend
-        run: npm run lint
-
-      - name: Run backend tests
-        working-directory: ./backend
-        run: npm test
-
-      # Step 4: Run Frontend Lint and Build
-      - name: Install frontend dependencies
+      # Step 3: Install dependencies for Frontend
+      - name: Install dependencies (Frontend)
         working-directory: ./frontend
-        run: npm install
+        run: |
+          npm install
 
-      - name: Run frontend linter
+      # Step 4: Run linting for Frontend
+      - name: Run linting (Frontend)
         working-directory: ./frontend
-        run: npm run lint
+        run: |
+          npm run lint
 
-      - name: Build frontend
+      # Step 5: Run tests for Frontend
+      - name: Run tests (Frontend)
         working-directory: ./frontend
-        run: npm run build
+        run: |
+          npm run test
+
+      # Step 6: Set up Node.js for Backend
+      - name: Set up Node.js for Backend
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # You can adjust this to your Node.js version
+
+      # Step 7: Install dependencies for Backend
+      - name: Install dependencies (Backend)
+        working-directory: ./backend
+        run: |
+          npm install
+
+      # Step 8: Run linting for Backend
+      - name: Run linting (Backend)
+        working-directory: ./backend
+        run: |
+          npm run lint
+
+      # Step 9: Run tests for Backend
+      - name: Run tests (Backend)
+        working-directory: ./backend
+        run: |
+          npm run test
