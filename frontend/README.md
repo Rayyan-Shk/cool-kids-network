@@ -29,7 +29,7 @@ The goal was to create a proof-of-concept application that:
 
 ### Repository Clone
 ```bash
-git clone https://github.com/Rayyan-Shk/user-management.git
+git clone https://github.com/Rayyan-Shk/cool-kids-network.git
 cd cool-kids-network
 ```
 
@@ -46,8 +46,15 @@ JWT_SECRET=your_secret_key_here
 PORT=5000
 ```
 
+3. Congfigure Prisma
+```
+npx prisma generate 
+
+npx prisma migrate dev
+```
+
 ### Running the Application
-From the project root directory, you can start both frontend and backend simultaneously:
+Execute the following commands separately for the Frontend and Backend:
 ```bash
 npm install
 
