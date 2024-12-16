@@ -150,7 +150,7 @@ Building this project was a transformative experience that tested and expanded m
 
 4. Api Endpoint (Postman)
 
-
+![API Endpoint](/frontend/public/API.png)
 
 ##  Bonus Achievements
 
