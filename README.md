@@ -46,6 +46,13 @@ JWT_SECRET=your_secret_key_here
 PORT=5000
 ```
 
+3. Congfigure Prisma
+```
+npx prisma generate 
+
+Npx prisma migrate dev
+```
+
 ### Running the Application
 Execute the following commands separately for the Frontend and Backend:
 ```bash
