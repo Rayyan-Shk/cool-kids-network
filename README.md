@@ -50,7 +50,7 @@ PORT=5000
 ```
 npx prisma generate 
 
-Npx prisma migrate dev
+npx prisma migrate dev
 ```
 
 ### Running the Application
