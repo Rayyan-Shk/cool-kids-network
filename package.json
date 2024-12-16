@@ -2,7 +2,8 @@
     "name": "project-root",
     "version": "1.0.0",
     "scripts": {
-      "install": "npm install --prefix backend && npm install --prefix frontend",
+      "install": "npm install --prefix backend && npm install --prefix frontend && npm run prisma:setup",
+      "prisma:setup": "cd backend && npx prisma generate && npx prisma migrate dev --name init",
       "start": "concurrently \"npm run backend\" \"npm run frontend\"",
       "backend": "cd backend && npm run dev",
       "frontend": "cd frontend && npm run dev"
