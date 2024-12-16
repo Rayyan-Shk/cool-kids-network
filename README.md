@@ -62,6 +62,16 @@ cd backend
 npm run test
 ```
 
+### Role Management API Endpoint
+- **Assign role**: `PATCH /api/users/role`
+  ```json
+  {
+  "email": "123@gmail.com",
+  "newRole": "Coolest Kid"
+  }
+  ```
+
+
 ##  Key Features
 
 ### User Registration and Character Generation
@@ -137,6 +147,10 @@ Building this project was a transformative experience that tested and expanded m
 3. User List for Cooler/Coolest Kids
 
 ![User List](/frontend/public/User-List.png)
+
+4. Api Endpoint (Postman)
+
+
 
 ##  Bonus Achievements
 
