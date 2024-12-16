@@ -29,7 +29,7 @@ The goal was to create a proof-of-concept application that:
 
 ### Repository Clone
 ```bash
-git clone https://github.com/your-username/cool-kids-network.git
+git clone https://github.com/Rayyan-Shk/user-management.git
 cd cool-kids-network
 ```
 
