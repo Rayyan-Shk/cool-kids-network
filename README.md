@@ -120,18 +120,6 @@ Building this project was a transformative experience that tested and expanded m
 - Test-driven development
 - Environment configuration management
 
-##  Bonus Achievements
-
-- Linter-compliant codebase
-- Comprehensive unit and integration tests
-- Continuous Integration (CI) setup
-- User-friendly, intuitive design
-- Dynamic role-based UI
-
-##  Contribution
-
-Feel free to fork, star, or contribute to this project.
-
 ## Screenshots
 
 1. Home Page
@@ -149,3 +137,15 @@ Feel free to fork, star, or contribute to this project.
 3. User List for Cooler/Coolest Kids
 
 ![User List](/frontend/public/User-List.png)
+
+##  Bonus Achievements
+
+- Linter-compliant codebase
+- Comprehensive unit and integration tests
+- Continuous Integration (CI) setup
+- User-friendly, intuitive design
+- Dynamic role-based UI
+
+##  Contribution
+
+Feel free to fork, star, or contribute to this project.
