@@ -47,7 +47,7 @@ PORT=5000
 ```
 
 ### Running the Application
-From the project root directory, you can start both frontend and backend simultaneously:
+Execute the following commands separately for the Frontend and Backend:
 ```bash
 npm install
 
